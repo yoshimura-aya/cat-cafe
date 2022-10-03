@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsBoolean, IsInt, IsString } from 'class-validator';
 
-export class CreateCatDto {
+export class CatDto {
   @ApiProperty({
     description: '猫の名前',
     type: String,
