@@ -12,7 +12,7 @@ export class CatsController {
   @ApiCreatedResponse({description:"正常終了"})
   @ApiInternalServerErrorResponse({description:"内部サーバエラー"})
   async create(@Body() CatDto: CatDto) {
-    this.catsService.create(CatDto);
+    await this.catsService.create(CatDto);
   }
 
   @Get()
@@ -27,6 +27,6 @@ export class CatsController {
     @Param('id')
     id: number,
   ) {
-    // get by ID logic
+    return this.catsService.findById(id);
   }
 }
