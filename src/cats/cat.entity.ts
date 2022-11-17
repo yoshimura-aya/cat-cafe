@@ -1,19 +1,20 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Model, Table, Length } from 'sequelize-typescript';
 
-@Entity()
-export class Cat {
-  @PrimaryGeneratedColumn()
+@Table
+export class Cat extends Model {
+  @Column({ primaryKey: true, autoIncrement:true })
   id: number;
 
-  @Column({ length: 50 })
+  @Length({ min: 1, max: 50 })
+  @Column
   name: string;
 
-  @Column('int')
+  @Column
   age: number;
 
-  @Column('boolean')
+  @Column
   isEstimationAge: boolean;
 
-  @Column('text')
+  @Column
   breed: string;
 }

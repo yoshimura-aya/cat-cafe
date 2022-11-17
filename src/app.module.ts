@@ -1,18 +1,14 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { SequelizeModule } from '@nestjs/sequelize';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CatsModule } from './cats/cats.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot({
-    type: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    username: 'root',
-    password: 'root8888',
+  imports: [SequelizeModule.forRoot({
+    dialect: 'sqlite',
     database: 'cat_cafe',
-    autoLoadEntities: true,
+    autoLoadModels: true,
     synchronize: true,
   }),CatsModule],
   controllers: [AppController],
