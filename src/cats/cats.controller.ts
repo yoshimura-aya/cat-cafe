@@ -11,8 +11,8 @@ export class CatsController {
   @Post()
   @ApiCreatedResponse({description:"正常終了"})
   @ApiInternalServerErrorResponse({description:"内部サーバエラー"})
-  async create(@Body() CatDto: CatDto) {
-    await this.catsService.create(CatDto);
+  async create(@Body() catDto: CatDto) {
+    await this.catsService.create(catDto);
   }
 
   @Get()
